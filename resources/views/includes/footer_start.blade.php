@@ -1,7 +1,7 @@
                 
                 <footer class="footer">
 
- <h6>Sunstar Holdings pvt.Ltd</h6>
+ <h6>Sunstar Holdings PVT.LTD</h6>
                     <!-- © 2020  - <?php echo date('Y') ?> Crafted By<a href="http://visirogs.com" target="_blank"> VISIRO</a>  in  <img  style="padding-bottom: 3px;min-height: 15px;" src="{{ URL::asset('assets/images/resources/flag.png') }}"/> -->
 
                 </footer>

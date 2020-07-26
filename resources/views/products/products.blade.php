@@ -58,7 +58,7 @@
                         <div>
                             <button type="submit" class="btn btn-primary waves-effect waves-light" data-toggle="modal"
                                 data-target="#addProductModal"><i class="ion-plus-round"></i>
-                                Product
+                                 Product
                             </button>
                         </div>
                     </div>

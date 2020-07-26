@@ -18,6 +18,8 @@ class SecurityController extends Controller
 
         $advanceEncryption=(new  \App\MyResources\AdvanceEncryption($request->get('password'),"Nova6566",256));
 
+        // AES
+        
         $userData = array(
             'username' => $request->get('username'),
             'password' => $advanceEncryption->encrypt(),
@@ -26,9 +28,10 @@ class SecurityController extends Controller
 
         $user = User::where('user_name', $request->get('username'))->where('password',$advanceEncryption->encrypt())->exists();
         if ($user==true){
-            $userData=User::where('user_name', $request->get('username'))->where('password',$advanceEncryption->encrypt())->first();
+            $userData=User::where('user_name', $request->get('username'))
+            ->where('password',$advanceEncryption->encrypt())->first();
             if ($userData->status==1){
-                session(['userid' => $userData->idUser,'username'=>$userData->username,'companyid'=>$userData->Company]);
+                session(['userid' => $userData->idUser,'username'=>$userData->username]);
                 Auth::login($userData);
                 return redirect('/');
             }else if($userData->status==0){

@@ -31,7 +31,7 @@
         </button>
     </li>
     <li class="hide-phone list-inline-item app-search">
-
+        <h3 class="page-title">{{ $title }}</h3>
     </li>
 </ul>
 
@@ -40,110 +40,111 @@
 
 </div>
 <!-- Top Bar End -->
-
-<!-- ==================
-     PAGE CONTENT START
-     ================== -->
+<!-- ================= PAGE CONTENT START================== -->
 
 <div class="page-content-wrapper">
     <div class="container-fluid">
         <div class="col-lg-12">
-            <div class="card m-b-20">
+            <!-- table body starts -->
+            <div class="card m-b-30">
                 <div class="card-body">
-
                     <div class="row">
-                        <div class="col-lg-4">
-                            <button type="submit" class="btn btn-md btn-outline-success waves-effect"
-                                data-toggle="modal" data-target="#addCategoryModal">Add supplier
+                        <div class="col-lg-10">
+                            <form class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <input class="form-control border-0" type="search"
+                                            placeholder="Search Supplier By Name" aria-label="Search">
+                                    </div>
+                                    <button type="submit"
+                                        class="pull-right btn btn-light btn-sm waves-effect waves-light border-0"><i
+                                            class="ion-search"></i>
+                                        Search
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="pull-right btn btn-primary btn-sm waves-effect waves-light"
+                                data-toggle="modal" data-target="#addSupplierModal"><b><i class="ion-plus-round"></i>
+                                Supplier</b>
                             </button>
                         </div>
                     </div>
+                    <br /><br />
+                    <table class="table table-hover">
 
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Start date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <!-- DB part -->
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>Manager</td>
+                                <td>System@Architect.com</td>
+                                <td>0774748564</td>
+                                <td>2011/04/25</td>
+                                <td><span class="badge badge-default font-14 font-weight-normal">Active</td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm waves-effect"
+                                        data-toggle="modal" data-target="#editSupplierModal" title="Update">
+                                        <i class="typcn typcn-edit"></i></button>
+
+                                    <button type="button" class="btn btn-warning btn-sm waves-effect"
+                                        data-toggle="modal" data-target="#editSupplierPswdModal"
+                                        title="Change Password">
+                                        <i class="mdi mdi-key"></i></button>
+
+                                    <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"
+                                        title="Deativate">
+                                        <i class="typcn typcn-lock-closed"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- pagination starts -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <!-- pagination hard coded -->
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- pagination ends -->
                 </div>
             </div>
         </div>
     </div><!-- container -->
-
 </div> <!-- Page content Wrapper -->
-
-</div> <!-- content -->
-
-<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title mt-0">Add test</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
-                </button>
-            </div>
-            <div class="modal-body">
-
-
-
-
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
+@include('suppliers/add')
+@include('suppliers/edit')
+@include('suppliers/change_password')
 
 @include('includes/footer_start')
 
-<!-- Plugins js -->
-<script src="{{ URL::asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js')}}" type="text/javascript"></script>
-<script src="{{ URL::asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}" type="text/javascript">
-</script>
-<script src="{{ URL::asset('assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js')}}"
-    type="text/javascript"></script>
-<script src="{{ URL::asset('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js')}}"
-    type="text/javascript"></script>
+<script src="{{ URL::asset('assets/js/bootstrap.js')}}"></script>
+<script src="{{ URL::asset('assets/js/app.js')}}"></script>
 
-<!-- Plugins Init js -->
-<script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
-
-<!-- Required datatable js -->
-<script src="{{ URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
-<!-- Buttons examples -->
-<script src="{{ URL::asset('assets/plugins/datatables/dataTables.buttons.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/jszip.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/pdfmake.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/vfs_fonts.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/buttons.html5.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/buttons.print.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/buttons.colVis.min.js')}}"></script>
-<!-- Responsive examples -->
-<script src="{{ URL::asset('assets/plugins/datatables/dataTables.responsive.min.js')}}"></script>
-<script src="{{ URL::asset('assets/plugins/datatables/responsive.bootstrap4.min.js')}}"></script>
-
-<script src="{{ URL::asset('assets/plugins/sweet-alert2/sweetalert2.min.js')}}"></script>
-<script src="{{ URL::asset('assets/pages/sweet-alert.init.js')}}"></script>
-
-<!-- Datatable init js -->
-<script src="{{ URL::asset('assets/pages/datatables.init.js')}}"></script>
-
-<!-- Parsley js -->
-<script type="text/javascript" src="{{ URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
-<script src="{{ URL::asset('assets/js/bootstrap-notify.js')}}"></script>
-<script src="{{ URL::asset('assets/js/jquery.notify.min.js')}}"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('form').parsley();
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-});
-$(document).on("wheel", "input[type=number]", function(e) {
-    $(this).blur();
-});
-</script>
 @include('includes/footer_end')

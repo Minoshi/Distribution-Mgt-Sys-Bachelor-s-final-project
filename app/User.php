@@ -10,8 +10,8 @@ class User extends Authenticatable
     use Notifiable;
 
 
-    protected $table= 'Master_User';
-    protected  $primaryKey='idMaster_User';
+    protected $table= 'master_user';
+    protected  $primaryKey='idmaster_user';
 
     public function UserRole(){
         return $this->belongsTo(UserRole::class,'Meta_User_Role');

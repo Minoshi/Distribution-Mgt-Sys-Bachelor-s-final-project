@@ -19,7 +19,8 @@ Route::get('/signin', function () {
 
 Route::post('/loginMy', 'SecurityController@signin')->name('loginMy');
 
-//Route::group(['middleware' => 'auth', 'prefix' => ''], function () {
+Route::group(['middleware' => 'auth', 'prefix' => ''], function () {
+    
     Route::get('/', function () {
         return view('index', ['title' => 'Home']);
     });
@@ -34,7 +35,7 @@ Route::get('/products', 'ProductController@products')->name('products');
 Route::get('/categories', 'CategoriesController@categories')->name('categories');
 
 Route::get('/test-page', 'TestController@testPage')->name('test-page');
-//    Route::get('/logout', 'SecurityController@logoutNow')->name('logout');
-//    Route::post('/activateDeactivate', 'API\CommonController@activateDeactivate')->name('activateDeactivate');
+    Route::get('/logout', 'SecurityController@logoutNow')->name('logout');
+    Route::post('/activateDeactivate', 'API\CommonController@activateDeactivate')->name('activateDeactivate');
 
-//});
+});
